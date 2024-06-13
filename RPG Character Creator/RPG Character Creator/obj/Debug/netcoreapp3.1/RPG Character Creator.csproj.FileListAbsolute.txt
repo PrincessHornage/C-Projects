@@ -1,0 +1,13 @@
+C:\Users\osaan\source\repos\C-Projects\RPG Character Creator\RPG Character Creator\bin\Debug\netcoreapp3.1\RPG Character Creator.exe
+C:\Users\osaan\source\repos\C-Projects\RPG Character Creator\RPG Character Creator\bin\Debug\netcoreapp3.1\RPG Character Creator.deps.json
+C:\Users\osaan\source\repos\C-Projects\RPG Character Creator\RPG Character Creator\bin\Debug\netcoreapp3.1\RPG Character Creator.runtimeconfig.json
+C:\Users\osaan\source\repos\C-Projects\RPG Character Creator\RPG Character Creator\bin\Debug\netcoreapp3.1\RPG Character Creator.runtimeconfig.dev.json
+C:\Users\osaan\source\repos\C-Projects\RPG Character Creator\RPG Character Creator\bin\Debug\netcoreapp3.1\RPG Character Creator.dll
+C:\Users\osaan\source\repos\C-Projects\RPG Character Creator\RPG Character Creator\bin\Debug\netcoreapp3.1\RPG Character Creator.pdb
+C:\Users\osaan\source\repos\C-Projects\RPG Character Creator\RPG Character Creator\obj\Debug\netcoreapp3.1\RPG Character Creator.csprojAssemblyReference.cache
+C:\Users\osaan\source\repos\C-Projects\RPG Character Creator\RPG Character Creator\obj\Debug\netcoreapp3.1\RPG Character Creator.AssemblyInfoInputs.cache
+C:\Users\osaan\source\repos\C-Projects\RPG Character Creator\RPG Character Creator\obj\Debug\netcoreapp3.1\RPG Character Creator.AssemblyInfo.cs
+C:\Users\osaan\source\repos\C-Projects\RPG Character Creator\RPG Character Creator\obj\Debug\netcoreapp3.1\RPG Character Creator.csproj.CoreCompileInputs.cache
+C:\Users\osaan\source\repos\C-Projects\RPG Character Creator\RPG Character Creator\obj\Debug\netcoreapp3.1\RPG Character Creator.dll
+C:\Users\osaan\source\repos\C-Projects\RPG Character Creator\RPG Character Creator\obj\Debug\netcoreapp3.1\RPG Character Creator.pdb
+C:\Users\osaan\source\repos\C-Projects\RPG Character Creator\RPG Character Creator\obj\Debug\netcoreapp3.1\RPG Character Creator.genruntimeconfig.cache

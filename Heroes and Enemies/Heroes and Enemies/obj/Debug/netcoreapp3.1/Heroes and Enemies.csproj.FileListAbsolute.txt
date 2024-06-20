@@ -1,0 +1,13 @@
+C:\Users\osaan\source\repos\C-Projects\Heroes and Enemies\Heroes and Enemies\bin\Debug\netcoreapp3.1\Heroes and Enemies.exe
+C:\Users\osaan\source\repos\C-Projects\Heroes and Enemies\Heroes and Enemies\bin\Debug\netcoreapp3.1\Heroes and Enemies.deps.json
+C:\Users\osaan\source\repos\C-Projects\Heroes and Enemies\Heroes and Enemies\bin\Debug\netcoreapp3.1\Heroes and Enemies.runtimeconfig.json
+C:\Users\osaan\source\repos\C-Projects\Heroes and Enemies\Heroes and Enemies\bin\Debug\netcoreapp3.1\Heroes and Enemies.runtimeconfig.dev.json
+C:\Users\osaan\source\repos\C-Projects\Heroes and Enemies\Heroes and Enemies\bin\Debug\netcoreapp3.1\Heroes and Enemies.dll
+C:\Users\osaan\source\repos\C-Projects\Heroes and Enemies\Heroes and Enemies\bin\Debug\netcoreapp3.1\Heroes and Enemies.pdb
+C:\Users\osaan\source\repos\C-Projects\Heroes and Enemies\Heroes and Enemies\obj\Debug\netcoreapp3.1\Heroes and Enemies.AssemblyInfoInputs.cache
+C:\Users\osaan\source\repos\C-Projects\Heroes and Enemies\Heroes and Enemies\obj\Debug\netcoreapp3.1\Heroes and Enemies.AssemblyInfo.cs
+C:\Users\osaan\source\repos\C-Projects\Heroes and Enemies\Heroes and Enemies\obj\Debug\netcoreapp3.1\Heroes and Enemies.csproj.CoreCompileInputs.cache
+C:\Users\osaan\source\repos\C-Projects\Heroes and Enemies\Heroes and Enemies\obj\Debug\netcoreapp3.1\Heroes and Enemies.dll
+C:\Users\osaan\source\repos\C-Projects\Heroes and Enemies\Heroes and Enemies\obj\Debug\netcoreapp3.1\Heroes and Enemies.pdb
+C:\Users\osaan\source\repos\C-Projects\Heroes and Enemies\Heroes and Enemies\obj\Debug\netcoreapp3.1\Heroes and Enemies.genruntimeconfig.cache
+C:\Users\osaan\source\repos\C-Projects\Heroes and Enemies\Heroes and Enemies\obj\Debug\netcoreapp3.1\Heroes and Enemies.csprojAssemblyReference.cache

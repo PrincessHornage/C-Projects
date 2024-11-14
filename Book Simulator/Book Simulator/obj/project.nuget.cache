@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "d+73ya/C/2/UqK1Vm+BSKv9AZJl5yVlGcqX5HTnIRss1v/gUe6md5vfQOGR/pbWtX2fJCdRIoWb7G8q125tPww==",
+  "dgSpecHash": "DbgRZcu0Z6fF3ouJCOjNWPGTQIHIkZm5lF46EBmLBr0l28Jg9LjpGEd1TF+hpMuqSlpF5dVHLctbRuiXdrBzmA==",
   "success": true,
   "projectFilePath": "C:\\Users\\osaan\\source\\repos\\C-Projects\\Book Simulator\\Book Simulator\\Book Simulator.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\osaan\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.32\\microsoft.netcore.app.host.win-x64.3.1.32.nupkg.sha512"
+  ],
   "logs": []
 }

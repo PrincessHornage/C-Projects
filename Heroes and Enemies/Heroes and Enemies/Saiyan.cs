@@ -15,10 +15,10 @@ namespace Heroes_and_Enemies
         public int SuperSaiyanLevel { get { return superSaiyanlevel; } }
 
         //Constructors
-        public Saiyan(String name)
+        public Saiyan(String name, int age)
         {
             this.name = name;
-            this.age = 10;
+            this.age = age;
             this.health = 100;
             this.powerLevel = 10;
             this.speed = 10;

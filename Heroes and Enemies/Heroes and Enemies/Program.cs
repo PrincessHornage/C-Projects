@@ -27,7 +27,7 @@ namespace Heroes_and_Enemies
             bool success2 = int.TryParse(Console.ReadLine(), out saiyanCount);
             while (!success2 || saiyanCount < 0 || saiyanCount > 7 || saiyanCount > partySize)//Input Validation 
             {
-                Console.Write($"Invalid answer. Please enter an integer between (1 - {partySize}): ");
+                Console.Write($"Invalid answer. Please enter an integer between (0 - {partySize}): ");
                 success2 = int.TryParse(Console.ReadLine(), out saiyanCount);
             }
 
@@ -59,7 +59,7 @@ namespace Heroes_and_Enemies
                     bool success4 = int.TryParse(Console.ReadLine(), out hunterCount);//Input Validation 
                     while (!success4 || hunterCount > remainingSpots)
                     {
-                        Console.Write($"Invalid answer. Please enter an integer between (1 - {remainingSpots}): ");
+                        Console.Write($"Invalid answer. Please enter an integer between (0 - {remainingSpots}): ");
                         success4 = int.TryParse(Console.ReadLine(), out hunterCount);
                     }
                 }
@@ -70,13 +70,96 @@ namespace Heroes_and_Enemies
 
                 Console.WriteLine($"Saiyan Count: {saiyanCount} \nHunter Count: {hunterCount} \nJinchuriki Count: {jinchurikiCount}");
             }
-           
-              
 
-              
+
+            //Fills arrays with data
+            //Overall hero deck
+            Hero[] playerTeam = new Hero[partySize];
+
+            //Other Arrays 
+            Hero[] saiyans = new Hero[saiyanCount];
+            Hero[] jinchuriki = new Hero[jinchurikiCount];
+            Hero[] hunters = new Hero[hunterCount];
+
+            //Saiyans
+            for (int i = 0; i < saiyanCount; i++)
+            {
+                Console.Write($"Please enter a name for saiyan #{i + 1}: ");
+                string getName = Console.ReadLine().Trim();  
+                while(getName == "")
+                {
+                    Console.WriteLine("Invalid input - Name was left blank. ");
+                    Console.Write($"Please enter a name for saiyan #{i + 1}: ");
+                    getName = Console.ReadLine().Trim();
+                }
+
+                int age; 
+                Console.Write($"Please enter {getName}'s age: ");
+                bool getAge = int.TryParse(Console.ReadLine().Trim(), out age); 
+                while (!getAge || age < 0)
+                {
+                    Console.WriteLine("Invalid input - Please enter a positive integer. ");
+                    Console.Write($"Please enter {getName}'s age: ");
+                    getAge = int.TryParse(Console.ReadLine().Trim(), out age);
+                }
+                //Creates new saiyan based on input and gives default stats
+                saiyans[i] = new Saiyan(getName, age); 
+            }
             
+            //Jinchuriki 
+            for (int i = 0; i < jinchurikiCount; i++)
+            {
+                Console.Write($"Please enter a name for jinchuriki #{i + 1}: ");
+                string getName = Console.ReadLine().Trim();
+                while (getName == "")
+                {
+                    Console.WriteLine("Invalid input - Name was left blank. ");
+                    Console.Write($"Please enter a name for jinchuriki #{i + 1}: ");
+                    getName = Console.ReadLine().Trim();
+                }
+
+                int age;
+                Console.Write($"Please enter {getName}'s age: ");
+                bool getAge = int.TryParse(Console.ReadLine().Trim(), out age);
+                while (!getAge || age < 0)
+                {
+                    Console.WriteLine("Invalid input - Please enter a positive integer. ");
+                    Console.Write($"Please enter {getName}'s age: ");
+                    getAge = int.TryParse(Console.ReadLine().Trim(), out age);
+                }
+                //Creates new jinchuriki based on input and gives default stats
+                jinchuriki[i] = new Hero(getName, age);
+            }
+
+            //Hunters 
+            for (int i = 0; i < hunterCount; i++)
+            {
+                Console.Write($"Please enter a name for hunter #{i + 1}: ");
+                string getName = Console.ReadLine().Trim();
+                while (getName == "")
+                {
+                    Console.WriteLine("Invalid input - Name was left blank. ");
+                    Console.Write($"Please enter a name for hunter #{i + 1}: ");
+                    getName = Console.ReadLine().Trim();
+                }
+
+                int age;
+                Console.Write($"Please enter {getName}'s age: ");
+                bool getAge = int.TryParse(Console.ReadLine().Trim(), out age);
+                while (!getAge || age < 0)
+                {
+                    Console.WriteLine("Invalid input - Please enter a positive integer. ");
+                    Console.Write($"Please enter {getName}'s age: ");
+                    getAge = int.TryParse(Console.ReadLine().Trim(), out age);
+                }
+                //Creates new jinchuriki based on input and gives default stats
+                hunters[i] = new Hero(getName, age);
+            }
+
+            //Prints all array lengths 
+            Console.WriteLine($"Saiyan Count: {saiyans.Length} \nJinchuriki Count: {jinchuriki.Length} \nHunter Count: {hunters.Length}"); 
         }
-        //------ Helper Methods ------ 
+         //------ Helper Methods ------ 
 
          //Checks to see if team is full 
          public static bool IsTeamFull(int spotsLeft, int partySize)

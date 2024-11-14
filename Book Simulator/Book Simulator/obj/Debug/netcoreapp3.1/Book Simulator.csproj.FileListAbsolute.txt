@@ -10,4 +10,5 @@ C:\Users\osaan\source\repos\C-Projects\Book Simulator\Book Simulator\obj\Debug\n
 C:\Users\osaan\source\repos\C-Projects\Book Simulator\Book Simulator\obj\Debug\netcoreapp3.1\Book Simulator.dll
 C:\Users\osaan\source\repos\C-Projects\Book Simulator\Book Simulator\obj\Debug\netcoreapp3.1\Book Simulator.pdb
 C:\Users\osaan\source\repos\C-Projects\Book Simulator\Book Simulator\obj\Debug\netcoreapp3.1\Book Simulator.genruntimeconfig.cache
-C:\Users\osaan\source\repos\C-Projects\Book Simulator\Book Simulator\obj\Debug\netcoreapp3.1\Book Simulator.csprojAssemblyReference.cache
+C:\Users\osaan\source\repos\C-Projects\Book Simulator\Book Simulator\obj\Debug\netcoreapp3.1\Book Simulator.csproj.AssemblyReference.cache
+C:\Users\osaan\source\repos\C-Projects\Book Simulator\Book Simulator\obj\Debug\netcoreapp3.1\Book Simulator.GeneratedMSBuildEditorConfig.editorconfig

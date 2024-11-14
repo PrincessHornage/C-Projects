@@ -32,10 +32,10 @@ namespace Heroes_and_Enemies
         public int Intelligence { get { return intelligence; } }
 
         //Constructors
-        public Hero()//Default Constructor
+        public Hero(String name, int age)//Default Constructor
         {
-            this.name = "Unknown";
-            this.age = 21;
+            this.name = name;
+            this.age = age;
             this.health = 100;
             this.powerLevel = 5;
             this.speed = 10;

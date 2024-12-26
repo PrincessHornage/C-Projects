@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: auto;
+}
+
+body { 
+    overflow: hidden;
+}
+
+h1{
+    text-align: center;
+}

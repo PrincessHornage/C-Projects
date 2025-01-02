@@ -18,7 +18,7 @@ let cols = 26;
 //Calculates indiviual sprite sizing 
 //Bug*: Only splices properly when i update the width before animation
 //Changes per row  
-let idleSpriteWidth = shibaInuSpriteSheet.width / cols + 2.5;   
+let idleSpriteWidth = shibaInuSpriteSheet.width / cols + 0.7;   
 let idleSpriteHeight = shibaInuSpriteSheet.height / rows; 
 ctx.webkitImageSmoothingEnabled = false; 
 ctx.imageSmoothingEnabled = false; 
@@ -29,35 +29,35 @@ let currFrame = 0;
 let srcX = 0; //Sprite source position 
 let srcY = 0;
 let fps = 0; //Animation speed 
+let scaleFactor = 4; 
+let midXPos = innerWidth / 2 - (idleSpriteWidth * scaleFactor) / 2;
+let midYPos = innerHeight / 2 - (idleSpriteHeight * scaleFactor) / 2;
+//ctx.translate(midXPos, midYPos); 
+//ctx.scale(scaleFactor, scaleFactor)
+
 
 //Animates Sprite Sheets 
 function animate(){
     ctx.clearRect(0,0,canvas.width, canvas.height);//Clears previous frame  
-    requestAnimationFrame(animate); 
+    requestAnimationFrame(animate); //smoothes animation
 
-    //Calculates current frame w/ 0 being the first
+    //Calculates current frame
     currFrame = currFrame % totalFrames;
-    srcX = currFrame * idleSpriteWidth; //shows new sprite position 
+    srcX = currFrame * idleSpriteWidth; //Updates sprite position 
 
     ctx.save();
-    resizeImage(); 
-    ctx.drawImage(shibaInuSpriteSheet, srcX, 27, idleSpriteWidth, idleSpriteHeight, 0, 0, idleSpriteWidth, idleSpriteHeight);
+    ctx.translate(midXPos, midYPos); //resizes animation  
+    ctx.scale(scaleFactor, scaleFactor)
+    ctx.drawImage(shibaInuSpriteSheet, srcX, srcY, idleSpriteWidth, idleSpriteHeight, 0, 0, idleSpriteWidth, idleSpriteHeight);
     ctx.restore(); 
 
     fps++; 
-    if(fps >= 8){
+    if(fps >= 10){
         currFrame++; 
         fps = 0; 
     }
 }
 
-function resizeImage(){
-    let scaleFactor = 4;
-    let midXPos = innerWidth / 2 - (idleSpriteWidth * scaleFactor) / 2;
-    let midYPos = innerHeight / 2 - (idleSpriteHeight * scaleFactor) / 2;
-    ctx.translate(midXPos, midYPos); 
-    ctx.scale(scaleFactor, scaleFactor)
-}
 
 //Loads canvas before image 
 let numOfImages = 1; 
@@ -72,4 +72,6 @@ addEventListener("keydown", e => {
         
     }
 });
+
+
 

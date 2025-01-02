@@ -16,11 +16,14 @@ let rows = 13;
 let cols = 26; 
 
 //Calculates indiviual sprite sizing 
+//Bug*: Only splices properly when i update the width before animation
+//Changes per row  
 let idleSpriteWidth = shibaInuSpriteSheet.width / cols + 2.5;   
 let idleSpriteHeight = shibaInuSpriteSheet.height / rows; 
 ctx.webkitImageSmoothingEnabled = false; 
 ctx.imageSmoothingEnabled = false; 
 
+//Also changes
 let totalFrames = 4; //total num of sprites in animation
 let currFrame = 0; 
 let srcX = 0; //Sprite source position 
@@ -42,7 +45,7 @@ function animate(){
     ctx.restore(); 
 
     fps++; 
-    if(fps >= 10){
+    if(fps >= 8){
         currFrame++; 
         fps = 0; 
     }
@@ -65,7 +68,7 @@ function loadImages() {
 
 //Keyboad Events 
 addEventListener("keydown", e => {
-    if(e.key === "ArrowLeft"){
+    if(e.key === "ArrowDown"){
         
     }
 });

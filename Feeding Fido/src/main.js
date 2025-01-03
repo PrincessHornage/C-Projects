@@ -16,10 +16,13 @@ class GameScene extends Phaser.Scene{
 
   //Preloads assets 
   preload(){
-    this.load.image("bg","/assets")
+    this.load.image("bg","/assets/levelonebg.png")
   }
   //Accepts and loads assets 
-  create(){}
+  create(){
+    //Spans image across canvas 
+    this.add.image(0,0,"bg"); 
+  }
   update(){}
 }
 //Game Configurations 

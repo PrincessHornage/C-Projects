@@ -8,12 +8,13 @@ const gameEndDiv = document.querySelector("#gameOverScreen");
 const gameResults = document.querySelector("#gameWinLoseSpan");
 const finalScore = document.querySelector("#gameEndScoreSpan ");
 const gameScreen = document.querySelector("#gameCanvas"); 
+const pauseBtn = document.querySelector("#pauseBtn");
 
 const sizes = {//Canvas Dimensions
   width: 500,
   height: 500
 }
-const speedDown = 300 //Gravity speed 
+const speedDown = 200 //Gravity speed 
 const foodSizes = {//Food Sprites 
   width: 70, 
   height: 70, 
@@ -29,17 +30,19 @@ const goodFood = [
 ]
 class GameScene extends Phaser.Scene{
   constructor(){//Game Variables 
-    super({ key: 'boot' });
+    super("scene-game");
     this.player;
     this.cursor; 
     this.playerSpeed = speedDown + 50; 
     this.target;
+    this.badTarget; 
     this.points = 0; 
     this.textScore; 
     this.textTime; 
     this.timedEvent; 
     this.remainingTime; 
-    this.emitter; 
+    this.goodEmitter; 
+    this.badEmitter; 
   }
 
   //Loads assets 
@@ -53,6 +56,7 @@ class GameScene extends Phaser.Scene{
     this.load.image("chicken-leg", "/assets/chicken-leg.png");
     this.load.image("dark-chocolate","/assets/dark-chocolate.png"); 
     this.load.image("good", "/assets/goodParticleEffect.png"); 
+    this.load.image("bad", "/assets/badParticleEffect.png"); 
 
     this.load.on("complete", () => {
       console.log("Image loaded successfully.");
@@ -60,7 +64,7 @@ class GameScene extends Phaser.Scene{
   }
   create(){
    /******* Game Logic *******/
-   this.scene.pause("scene-game")//pauses game (add to pause btn later)
+   this.scene.pause("scene-game");//pauses game (add to pause btn later)
 
   /*********************Images*******************/
     //Backgound 
@@ -74,7 +78,7 @@ class GameScene extends Phaser.Scene{
     this.player.setImmovable(true); //prevents other sprites from interacting 
     this.player.body.allowGravity = false;  //stops player from falling off screen 
     this.player.setCollideWorldBounds(true);//Prevents player from leaving
-    this.player.setSize(this.player.width - this.player.width / 4, this.player.height / 6).
+    this.player.setSize(this.player.width - this.player.width / 6, this.player.height / 6).
     setOffset(this.player.width/10, this.player.height - this.player.height/ 10);//Sets hitbox to bottom of player 
     //resizes hitbox 
     this.cursor = this.input.keyboard.createCursorKeys(); //Keyboard controls 
@@ -85,8 +89,14 @@ class GameScene extends Phaser.Scene{
     .setOrigin(0,0); 
     this.target.setMaxVelocity(0,speedDown); 
 
+    this.badTarget = this.physics.add
+    .image(sizes.width / 2, 0, "dark-chocolate").setDisplaySize(foodSizes.width, foodSizes.height);
+    this.badTarget.setMaxVelocity(0,speedDown); 
+
+
     //Collisons 
     this.physics.add.overlap(this.target, this.player, this.targetHit, null, this);
+    this.physics.add.overlap(this.badTarget, this.player, this.badTargetHit, null, this);
 
     /************Game UI ***********/
     //Score 
@@ -101,10 +111,10 @@ class GameScene extends Phaser.Scene{
       fill: "#FFFFFF",
     });
     //Change 100 to +/- game length 
-    this.timedEvent = this.time.delayedCall(4000, this.gameOver, [], this); 
+    this.timedEvent = this.time.delayedCall(40000, this.gameOver, [], this); 
 
     //Particle Effects
-    this.emitter = this.add.particles(0,0,"good", {
+    this.goodEmitter = this.add.particles(0,0,"good", {
       speed: 100,
       gravityY: speedDown - 200, 
       scale: 0.1,
@@ -112,18 +122,38 @@ class GameScene extends Phaser.Scene{
       emitting: false
     });
 
+    this.badEmitter = this.add.particles(0,0,"bad", {
+      speed: 100,
+      gravityY: speedDown - 200, 
+      scale: 0.1,
+      duration: 200,
+      emitting: false
+    });
+
     //Lets particles follow player 
-    this.emitter.startFollow(this.player, this.player.width / 8, this.player.height / 6, true); 
+    this.goodEmitter.startFollow(this.player, this.player.width / 8, this.player.height / 6, true); 
+    this.badEmitter.startFollow(this.player, this.player.width / 8, this.player.height / 6, true); 
 
   }
   update(){
     this.remainingTime = this.timedEvent.getRemainingSeconds(); 
-    this.textTime.setText(`Remaining Time: ${Math.round(this.remainingTime).toString()}`)
+    this.textTime.setText(`Time: ${Math.round(this.remainingTime).toString()}`)
     //Food Movement 
     if(this.target.y >= sizes.height){
       this.target.setY(0);//resets pos to top of screen 
       this.target.setX(this.getRandomX()) //sets random x pos 
+      this.points--; //Deducts points for missing food  
+      this.textScore.setText(`Score: ${this.points}`)
     }
+
+    if(this.badTarget.y >= sizes.height){
+      this.badTarget.setY(0);//resets pos to top of screen 
+      this.badTarget.setX(this.getRandomX()) //sets random x pos 
+      this.points++; //Adds points for missing toxic food  
+      this.textScore.setText(`Score: ${this.points}`)
+    }
+
+
 
    //Player Movement
    const {right, left} = this.cursor; 
@@ -145,15 +175,25 @@ class GameScene extends Phaser.Scene{
   //Collision Detection 
   targetHit() {
     this.target.setY(0); 
-    this.emitter.start(); 
+    this.target.setVelocityY(speedDown);
+    this.goodEmitter.start(); 
     this.target.setX(this.getRandomX()); 
     this.points++; 
     this.textScore.setText(`Score: ${this.points}`)
   }
 
-  gameOver(){
+  badTargetHit() {
+    this.badTarget.setY(0); 
+    this.target.setVelocityY(speedDown);
+    this.badEmitter.start(); 
+    this.badTarget.setX(this.getRandomX()); 
+    this.points--; 
+    this.textScore.setText(`Score: ${this.points}`)
+  }
+
+    gameOver(){
     this.sys.game.destroy(true);//removes and destroys scene
-    if(this.points >= 0){
+    if(this.points >= 10){
       finalScore.textContent = this.points; 
       gameResults.textContent = "Win!";
     }else{ 
@@ -183,8 +223,21 @@ const config = {
 
 const game = new Phaser.Game(config) 
 
+//Button Events 
 gameStartBtn.addEventListener("click", () => {
   gameStartDiv.style.display = "none";
   gameScreen.style.display = "flex";
   game.scene.resume("scene-game"); 
 });
+
+pauseBtn.addEventListener("click", () => {
+  game.scene.pause("scene-game");
+});
+
+//Resumes scene is players double click pause btn 
+pauseBtn.addEventListener("dblclick", () => {
+  game.scene.resume("scene-game"); 
+});
+
+
+

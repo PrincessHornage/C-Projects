@@ -1,25 +1,45 @@
 import './style.css';
 import Phaser from 'phaser';
 /********************************/
+//Game UI 
+const gameStartDiv = document.querySelector("#startScreen");
+const gameStartBtn = document.querySelector("#startGameBtn");
+const gameEndDiv = document.querySelector("#gameOverScreen");
+const gameResults = document.querySelector("#gameWinLoseSpan");
+const finalScore = document.querySelector("#gameEndScoreSpan ");
+const gameScreen = document.querySelector("#gameCanvas"); 
 
- 
 const sizes = {//Canvas Dimensions
   width: 500,
   height: 500
 }
 const speedDown = 300 //Gravity speed 
-const foodSizes = {
-  width: 200, 
-  height: 200, 
+const foodSizes = {//Food Sprites 
+  width: 70, 
+  height: 70, 
 }
-
+const badFood = [
+  "avocado",
+  "dark-chocolate"
+]
+const goodFood = [
+  "apple",
+  "bananas",
+  "chicken-leg"
+]
 class GameScene extends Phaser.Scene{
-  constructor(){
+  constructor(){//Game Variables 
     super({ key: 'boot' });
-    this.player
-    this.cursor 
+    this.player;
+    this.cursor; 
     this.playerSpeed = speedDown + 50; 
-    this.target
+    this.target;
+    this.points = 0; 
+    this.textScore; 
+    this.textTime; 
+    this.timedEvent; 
+    this.remainingTime; 
+    this.emitter; 
   }
 
   //Loads assets 
@@ -27,31 +47,87 @@ class GameScene extends Phaser.Scene{
     console.log("Loading images...");
     this.load.image("bg", "/assets/levelonebg.png");  // Make sure this path is correct
     this.load.image("player","/assets/playerSprite.png");
-    this.load.image("chicken", "/assets/chicken-leg.png");
     this.load.image("apple","/assets/apple.png"); 
+    this.load.image("avocado","/assets/avocado.png"); 
+    this.load.image("bananas","/assets/bananas.png"); 
+    this.load.image("chicken-leg", "/assets/chicken-leg.png");
+    this.load.image("dark-chocolate","/assets/dark-chocolate.png"); 
+    this.load.image("good", "/assets/goodParticleEffect.png"); 
+
     this.load.on("complete", () => {
       console.log("Image loaded successfully.");
     });
   }
-
   create(){
+   /******* Game Logic *******/
+   this.scene.pause("scene-game")//pauses game (add to pause btn later)
+
+  /*********************Images*******************/
+    //Backgound 
     const bg = this.add.image(0,0,"bg").setOrigin(0,0);
     bg.setDisplaySize(sizes.width, sizes.height);
 
+    /**********************Sprites Logic****************************/
+    //Player 
     this.player = this.physics.add.image(175, sizes.height-100,"player").setOrigin(0,0);
     this.player.setDisplaySize(200,100); //scales image 
     this.player.setImmovable(true); //prevents other sprites from interacting 
     this.player.body.allowGravity = false;  //stops player from falling off screen 
     this.player.setCollideWorldBounds(true);//Prevents player from leaving
-    this.player.body.setSize(this.player.width - 350, this.player.height);//resizes hitbox 
+    this.player.setSize(this.player.width - this.player.width / 4, this.player.height / 6).
+    setOffset(this.player.width/10, this.player.height - this.player.height/ 10);//Sets hitbox to bottom of player 
+    //resizes hitbox 
     this.cursor = this.input.keyboard.createCursorKeys(); //Keyboard controls 
-    
-  }
 
+    //Food 
+    this.target = this.physics.add
+    .image(sizes.width / 2,0,"chicken-leg").setDisplaySize(foodSizes.width,foodSizes.height)
+    .setOrigin(0,0); 
+    this.target.setMaxVelocity(0,speedDown); 
+
+    //Collisons 
+    this.physics.add.overlap(this.target, this.player, this.targetHit, null, this);
+
+    /************Game UI ***********/
+    //Score 
+    this.textScore = this.add.text(sizes.width - 120, 10, "Score: 0", {
+      font: "25px Arial",
+      fill: "#FFFFFF",
+    });
+
+  //Timer 
+    this.textTime = this.add.text(0, 10, "Time: 00", {
+      font: "25px Arial",
+      fill: "#FFFFFF",
+    });
+    //Change 100 to +/- game length 
+    this.timedEvent = this.time.delayedCall(4000, this.gameOver, [], this); 
+
+    //Particle Effects
+    this.emitter = this.add.particles(0,0,"good", {
+      speed: 100,
+      gravityY: speedDown - 200, 
+      scale: 0.1,
+      duration: 100,
+      emitting: false
+    });
+
+    //Lets particles follow player 
+    this.emitter.startFollow(this.player, this.player.width / 8, this.player.height / 6, true); 
+
+  }
   update(){
+    this.remainingTime = this.timedEvent.getRemainingSeconds(); 
+    this.textTime.setText(`Remaining Time: ${Math.round(this.remainingTime).toString()}`)
+    //Food Movement 
+    if(this.target.y >= sizes.height){
+      this.target.setY(0);//resets pos to top of screen 
+      this.target.setX(this.getRandomX()) //sets random x pos 
+    }
+
+   //Player Movement
    const {right, left} = this.cursor; 
    
-   //Player Movement
    if(left.isDown) {
     this.player.setVelocityX(-this.playerSpeed);
    } else if (right.isDown) {
@@ -59,6 +135,33 @@ class GameScene extends Phaser.Scene{
    } else {
     this.player.setVelocityX(0);
    }
+  }
+
+  /**************Helper Methods**************/
+  //Returns random food pos 
+  getRandomX(){
+    return Math.floor(Math.random() * 400); 
+  }
+  //Collision Detection 
+  targetHit() {
+    this.target.setY(0); 
+    this.emitter.start(); 
+    this.target.setX(this.getRandomX()); 
+    this.points++; 
+    this.textScore.setText(`Score: ${this.points}`)
+  }
+
+  gameOver(){
+    this.sys.game.destroy(true);//removes and destroys scene
+    if(this.points >= 0){
+      finalScore.textContent = this.points; 
+      gameResults.textContent = "Win!";
+    }else{ 
+      finalScore.textContent = this.points; 
+      gameResults.textContent = "Lose!";
+    }
+
+    gameEndDiv.style.display = "flex"; 
   }
 }
 
@@ -78,5 +181,10 @@ const config = {
   scene:[GameScene]
 }
 
-
 const game = new Phaser.Game(config) 
+
+gameStartBtn.addEventListener("click", () => {
+  gameStartDiv.style.display = "none";
+  gameScreen.style.display = "flex";
+  game.scene.resume("scene-game"); 
+});

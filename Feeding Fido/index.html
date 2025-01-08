@@ -8,10 +8,22 @@
   </head>
   <body>
     <header>
-      <p>Phaser Demo | Feeding Fido</p>
+      <h1>Feeding Fido</h1>
     </header>
     <main>
       <canvas id="gameCanvas"></canvas>
+      <div id="startScreen" class="gameUI">
+        <p>Catch the dog-safe foods</p>
+        <p>Avoid the poisionous stuff</p>
+        <p>Keep your dog alive for as many rounds as you can </p>
+        <button id="startGameBtn">Start</button>
+      </div>
+      <div id="gameOverScreen" class="gameUI">
+        <p>Game Over</p>
+        <h1>You <span id="gameWinLoseSpan"></span></h1>
+        <h1>Final Score: <span id="gameEndScoreSpan"></span></h1>
+        <p>Hit refresh on you browser page to play again</p>
+      </div>
     </main>
     <footer>Created By Princess Hornage 2025</footer>
     <script type="module" src="src/main.js"></script>

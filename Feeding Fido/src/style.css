@@ -1,6 +1,6 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  --dkClr:#181818; 
+  --dkClr:#94ff99; 
   --liClr: #ffffff; 
   --accClr: #0D0D35; 
 }
@@ -57,6 +57,12 @@ main{
   z-index: 2;
 }
 
+
+.gameUI .button {
+  font-size: 20px;
+  width: 300px;
+}
+
 .gameUI * {
   text-align: center;
   margin-top: 5px;
@@ -68,6 +74,13 @@ main{
   align-items: center;
 }
 
-#gameOverScreen{
+#gameOverScreen, #backBtn, #pauseBtn{
   display: none;
 }
+
+#backBtn { 
+  width: fit-content;
+  height: 50px;
+}
+
+

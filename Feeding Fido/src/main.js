@@ -1,5 +1,6 @@
 import './style.css';
 import Phaser from 'phaser';
+import './gameUI.js'; 
 /********************************/
 //Game UI 
 const gameStartDiv = document.querySelector("#startScreen");
@@ -110,7 +111,7 @@ class GameScene extends Phaser.Scene{
       font: "25px Arial",
       fill: "#FFFFFF",
     });
-    //Change 100 to +/- game length 
+    //Change # to +/- game length 
     this.timedEvent = this.time.delayedCall(40000, this.gameOver, [], this); 
 
     //Particle Effects
@@ -142,7 +143,7 @@ class GameScene extends Phaser.Scene{
     if(this.target.y >= sizes.height){
       this.target.setY(0);//resets pos to top of screen 
       this.target.setX(this.getRandomX()) //sets random x pos 
-      this.points--; //Deducts points for missing food  
+      this.points--; //Deducts points for missing good food  
       this.textScore.setText(`Score: ${this.points}`)
     }
 
@@ -152,7 +153,6 @@ class GameScene extends Phaser.Scene{
       this.points++; //Adds points for missing toxic food  
       this.textScore.setText(`Score: ${this.points}`)
     }
-
 
 
    //Player Movement
@@ -193,6 +193,8 @@ class GameScene extends Phaser.Scene{
 
     gameOver(){
     this.sys.game.destroy(true);//removes and destroys scene
+
+    //Win/Lose Conditions 
     if(this.points >= 10){
       finalScore.textContent = this.points; 
       gameResults.textContent = "Win!";
@@ -201,7 +203,9 @@ class GameScene extends Phaser.Scene{
       gameResults.textContent = "Lose!";
     }
 
+    //Unhides gameover screen 
     gameEndDiv.style.display = "flex"; 
+    pauseBtn.style.display = "none"; 
   }
 }
 
@@ -227,9 +231,12 @@ const game = new Phaser.Game(config)
 gameStartBtn.addEventListener("click", () => {
   gameStartDiv.style.display = "none";
   gameScreen.style.display = "flex";
+  pauseBtn.style.display = "flex"; 
   game.scene.resume("scene-game"); 
 });
 
+
+//Pause Button
 pauseBtn.addEventListener("click", () => {
   game.scene.pause("scene-game");
 });
@@ -238,6 +245,7 @@ pauseBtn.addEventListener("click", () => {
 pauseBtn.addEventListener("dblclick", () => {
   game.scene.resume("scene-game"); 
 });
+
 
 
 

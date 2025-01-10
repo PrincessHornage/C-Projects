@@ -1,23 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/assets/naughty.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <title>Feeding Fido</title>
   </head>
   <body>
     <header>
-      <h1>Feeding Fido</h1>
+      <h1 class="title">Feeding Fido</h1>
     </header>
     <main>
       <canvas id="gameCanvas"></canvas>
-      <div id="startScreen" class="gameUI">
-        <p>Catch the dog-safe foods</p>
-        <p>Avoid the poisionous stuff</p>
-        <p>Keep your dog alive for as many rounds as you can </p>
-        <button id="startGameBtn">Start</button>
+
+      <!--Start Screen-->
+      <div id="startScreen" class="gameUI content">
+        <button id="startGameBtn" class="button is-rounded">Start</button>
+        <button id="instructionsBtn" class="button is-rounded">How To Play</button>
+        <button id="optionsBtn" class="button is-rounded">Options</button>
+        <button id="creditsBtn" class="button is-rounded">Credits</button>
       </div>
+
+      <!--Options Screen-->
+
+      <div id="instructionsScreen" class="content instructionsUI">
+
+      </div>
+
+      <button id="backBtn" class="button is-rounded"><span>--</span></button>
+
+      <!--Instructions Screen-->
+      <!--Credits Screen-->
+      
+
+      <!--Game Over Screen-->
+
       <div id="gameOverScreen" class="gameUI">
         <p>Game Over</p>
         <h1>You <span id="gameWinLoseSpan"></span></h1>
@@ -25,11 +43,16 @@
         <p>Hit refresh on you browser page to play again</p>
       </div>
 
+      <!--Game UI -->
+
       <div id="gameBtn">
-        <button id="pauseBtn"><span>||</span></button>
+        <button id="pauseBtn" class="button is-rounded"><span>||</span></button>
       </div>
+
+
     </main>
-    <footer>Created By Princess Hornage 2025</footer>
+    <footer>Osaani Productions | Princess Hornage 2025</footer>
     <script type="module" src="src/main.js"></script>
+    <script type="module" src="src/gameUI.js"></script>
   </body>
 </html>

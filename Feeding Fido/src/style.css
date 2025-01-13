@@ -74,13 +74,18 @@ main{
   align-items: center;
 }
 
-#gameOverScreen, #backBtn, #pauseBtn{
+#gameOverScreen, #backBtn, #pauseBtn, #instructionsScreen{
   display: none;
 }
 
 #backBtn { 
   width: fit-content;
   height: 50px;
+}
+
+#instrImg {
+  width: 128px;
+  height: auto;
 }
 
 

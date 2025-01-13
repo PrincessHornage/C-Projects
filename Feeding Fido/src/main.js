@@ -29,6 +29,7 @@ const goodFood = [
   "bananas",
   "chicken-leg"
 ]
+
 class GameScene extends Phaser.Scene{
   constructor(){//Game Variables 
     super("scene-game");
@@ -49,7 +50,7 @@ class GameScene extends Phaser.Scene{
   //Loads assets 
   preload(){
     console.log("Loading images...");
-    this.load.image("bg", "/assets/levelonebg.png");  // Make sure this path is correct
+    this.load.image("bg", "/assets/levelonebg.png");
     this.load.image("player","/assets/playerSprite.png");
     this.load.image("apple","/assets/apple.png"); 
     this.load.image("avocado","/assets/avocado.png"); 
@@ -58,10 +59,15 @@ class GameScene extends Phaser.Scene{
     this.load.image("dark-chocolate","/assets/dark-chocolate.png"); 
     this.load.image("good", "/assets/goodParticleEffect.png"); 
     this.load.image("bad", "/assets/badParticleEffect.png"); 
+    //this.load.image("lArrow", "/assets/left-arrow.png"); 
+    //this.load.image("rArrow", "/assets/right-arrow.png"); 
+    
 
     this.load.on("complete", () => {
       console.log("Image loaded successfully.");
     });
+
+    console.log(`${this.textures.get('bg')}`); 
   }
   create(){
    /******* Game Logic *******/

@@ -1,4 +1,5 @@
 const instructionsBtn = document.querySelector("#instructionsBtn");
+const instructionsScreen = document.querySelector("#instructionsScreen");
 const creditsBtn = document.querySelector("#creditsBtn");
 const optionsBtn = document.querySelector("#optionsBtn");
 const startScreen = document.querySelector("#startScreen"); 
@@ -28,7 +29,9 @@ instructionsBtn.addEventListener("click", ()=> {
 
     //Hide all other screens 
     startScreen.style.display = "none"; 
-    //Display credits screen 
+
+    //Displays instructions screen 
+    instructionsScreen.style.display = "flex"; 
 
     
     //Display Main Menu Button 
@@ -54,6 +57,7 @@ mainMenuBtn.addEventListener("click", ()=> {
     //Hide all other screens 
     startScreen.style.display = "flex"; 
     mainMenuBtn.style.display = "none"; 
+    instructionsScreen.style.display = "none"
 
 });
 

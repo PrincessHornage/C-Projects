@@ -9,10 +9,72 @@
   </head>
   <body>
     <header>
-      <h1 class="title">Feeding Fido</h1>
+      <h1 class="title has-text-dark">Feeding Fido</h1>
     </header>
     <main>
       <canvas id="gameCanvas"></canvas>
+
+      <!--Instructions Screen-->
+
+      <div class="columns is-centered">
+        <div class="column is-narrow">
+          <button id="backBtn" class="button is-rounded"><span>Back</span></button>
+        </div>
+        <div class="column">
+
+          <div id="instructionsScreen" class="content">
+            <div class="card">
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-content">
+                    <p class="title is-4 has-text-centered">How To Play</p>
+                  </div>
+                </div>
+            
+                <div class="content has-text-centered pt-6 is-size-4">
+                  You just got a new puppy and it looks like he's really hungry. It must be treat time!
+                  <br>Use the <strong>left and right </strong> arrow keys on your keyboard to move your pup on the screen. 
+                  <br> Catch all the good treats but watch out, some of the food is <strong><em>toxic!</em></strong>
+                  <br> How many toxic foods can you remember to avoid? 
+                  <br>   
+                </div>
+
+                
+                <!-- Use columns for side-by-side layout -->
+                <div class="content "> 
+                  <div class="columns is-centered ">
+                    <div class="column is-narrow">
+                      <figure class="image is-128x128">
+                        <img src="/public/assets/left-arrow.png" alt="">
+                      </figure>
+                    </div>
+                    <div class="column is-narrow">
+                      <figure class="image is-128x128">
+                        <img src="/public/assets/right-arrow.png" alt="">
+                      </figure>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+   
+
+
+      <!--Options Screen-->
+      <div id="optionsScreen">
+         
+      </div>
+
+      <!--Credits Screen-->
+        
+  
+  
 
       <!--Start Screen-->
       <div id="startScreen" class="gameUI content">
@@ -21,18 +83,6 @@
         <button id="optionsBtn" class="button is-rounded">Options</button>
         <button id="creditsBtn" class="button is-rounded">Credits</button>
       </div>
-
-      <!--Options Screen-->
-
-      <div id="instructionsScreen" class="content instructionsUI">
-
-      </div>
-
-      <button id="backBtn" class="button is-rounded"><span>--</span></button>
-
-      <!--Instructions Screen-->
-      <!--Credits Screen-->
-      
 
       <!--Game Over Screen-->
 

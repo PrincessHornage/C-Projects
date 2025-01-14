@@ -9,20 +9,19 @@
   </head>
   <body>
     <header>
-      <h1 class="title has-text-dark">Feeding Fido</h1>
+      <h1 class="title has-text-dark" id="gameTitle">Feeding Fido</h1>
     </header>
     <main>
       <canvas id="gameCanvas"></canvas>
 
       <!--Instructions Screen-->
-      <div class="content has-background-warning pl-2" id="instructionsScreen">
+      <div class="content pl-2" id="instructionsScreen">
             <div class="columns is-centered">
           <div class="column is-narrow">
-            <button id="backBtn" class="button is-rounded"><span>Back</span></button>
           </div>
-          <div class="column if">
+          <div class="column">
 
-            <div class="content">
+            <div class="content" id="instrCard">
               <div class="card">
                 <div class="card-content">
                   <div class="media">
@@ -31,7 +30,7 @@
                     </div>
                   </div>
               
-                  <div class="content has-text-centered pt-6 is-size-4">
+                  <div class="content has-text-centered pt-6 is-size-4" id="intro">
                     You just got a new puppy and it looks like he's really hungry. It must be treat time!
                     <br>Use the <strong>left and right </strong> arrow keys on your keyboard to move your pup on the screen. 
                     <br> Catch all the good treats but watch out, some of the food is <strong><em>toxic!</em></strong>
@@ -39,24 +38,111 @@
                     <br>   
                   </div>
 
+                  <br/>
                   
-                  <!-- Use columns for side-by-side layout -->
-                  <div class="content "> 
+                  <!--Arrow Media-->
+                  <div class="content" id="arrowImgs"> 
                     <div class="columns is-centered ">
                       <div class="column is-narrow">
                         <figure class="image is-128x128">
-                          <img src="/public/assets/left-arrow.png" alt="">
+                          <img src="/assets/left-arrow.png" alt="">
                         </figure>
                       </div>
                       <div class="column is-narrow">
                         <figure class="image is-128x128">
-                          <img src="/public/assets/right-arrow.png" alt="">
+                          <img src="/assets/right-arrow.png" alt="">
                         </figure>
                       </div>
 
                     </div>
                   </div>
+
+                  <hr/>
+
+                  <!--Toxic Food List-->
+                  <div class="content has-text-centered">
+                    <p class="title is-4 has-text-centered pt-3">Foods To Avoid </p>
+                    <br/>
+                    <div class="fixed-grid primary has-text-danger pl-6 is-size-5" id="toxicList">
+                      <div class="grid">
+                        <div class="cell mt-5">Chocolate</div>
+                        <div class="cell">
+                          <figure class="image is-96x96">
+                            <img src="/assets/dark-chocolate.png" alt="Dark Chocolate">
+                          </figure>
+                        </div>
+                        <div class="cell mt-5">Grapes/Raisins</div>
+                        <div class="cell">
+                          <figure class="image is-96x96">
+                            <img src="/assets/grape.png" alt="Dark Chocolate">
+                          </figure>
+                        </div>
+                        <div class="cell mt-5">Onions</div>
+                        <div class="cell">
+                           <figure class="image is-96x96">
+                            <img src="/assets/onion.png" alt="Dark Chocolate">
+                          </figure>
+                        </div>
+                        <div class="cell mt-5">Garlic</div>
+                        <div class="cell">
+                           <figure class="image is-96x96">
+                            <img src="/assets/garlic.png" alt="Dark Chocolate">
+                          </figure>
+                        </div>
+                        <div class="cell mt-5">Gum</div>
+                        <div class="cell">
+                           <figure class="image is-96x96">
+                            <img src="/assets/chewing-gum.png" alt="Dark Chocolate">
+                          </figure>
+                        </div>
+                        <div class="cell mt-5">Soda</div>
+                        <div class="cell">
+                           <figure class="image is-96x96">
+                            <img src="/assets/soft-drink.png" alt="Dark Chocolate">
+                          </figure>
+                        </div>
+                        <div class="cell mt-5">Ice Cream</div>
+                        <div class="cell">
+                           <figure class="image is-96x96">
+                            <img src="/assets/ice-cream.png" alt="Dark Chocolate">
+                          </figure>
+                        </div>
+                        <div class="cell mt-5">Pizza</div>
+                        <div class="cell">
+                           <figure class="image is-96x96">
+                            <img src="/assets/pizza.png" alt="Dark Chocolate">
+                          </figure>
+                        </div>
+                        <div class="cell mt-5">Nuts</div>
+                        <div class="cell">
+                           <figure class="image is-96x96">
+                            <img src="/assets/nuts.png" alt="Dark Chocolate">
+                          </figure>
+                        </div>
+                        <div class="cell mt-5">Sweets/Desserts</div>
+                        <div class="cell">
+                           <figure class="image is-96x96">
+                            <img src="/assets/sweets.png" alt="Dark Chocolate">
+                          </figure>
+                        </div>
+                        <div class="cell mt-5">Avocados</div>
+                        <div class="cell">
+                           <figure class="image is-96x96">
+                            <img src="/assets/avocado.png" alt="Dark Chocolate">
+                          </figure>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
                 </div>
+
+                <footer class="card-footer">
+                  <a href="#" class="card-footer-item">Return to Top</a>
+                  <a href=""><button class="card-footer-item" id="backBtn">Main Menu</a></a>
+                  
+                </footer>
               </div>
             </div>
           </div>

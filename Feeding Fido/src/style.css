@@ -92,6 +92,41 @@ main{
  max-width: fit-content;
  margin-left: auto;
  margin-right: auto;
+ padding-right: 20px;
+}
+
+
+#toxicList{
+  text-align: center;
+  margin-left: 60px;
+}
+
+  
+#gameTitle{
+  font-size: clamp(25px, 2vw + 1rem, 50px);/*(mix, preff, max)*/
+}
+
+/*Media Queries*/
+
+/*Mobile S (320x)*/
+/*Mobile M (375x)*/
+/*Mobile L (425x)*/
+/*Tablet (768x)*/
+/*Laptop (1024x)*/
+@media screen and (min-width: 1024px) {
+  /* Your CSS styles for screens 1024px or wider go here */
+  /*Increase Title Size*/
+  #gameTitle{
+    font-size: 300%;
+  }
+
+  /**/
+}
+/*Laptop L(1440x)*/
+/*4K (2560x)*/
+
+@media screen and (min-width: 768px) {
+  /* Your CSS styles for screens 768px or wider go here */
 }
 
 

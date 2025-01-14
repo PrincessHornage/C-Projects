@@ -4,6 +4,7 @@ const creditsBtn = document.querySelector("#creditsBtn");
 const optionsBtn = document.querySelector("#optionsBtn");
 const startScreen = document.querySelector("#startScreen"); 
 const mainMenuBtn = document.querySelector("#backBtn"); 
+const gameTitle = document.querySelector("#gameTitle"); 
 
 const gameStartDiv = document.querySelector("#startScreen");
 const gameStartBtn = document.querySelector("#startGameBtn");
@@ -29,6 +30,7 @@ instructionsBtn.addEventListener("click", ()=> {
 
     //Hide all other screens 
     startScreen.style.display = "none"; 
+    gameTitle.style.display = "none"; 
 
     //Displays instructions screen 
     instructionsScreen.style.display = "flex"; 

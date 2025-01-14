@@ -74,7 +74,7 @@ main{
   align-items: center;
 }
 
-#gameOverScreen, #backBtn, #pauseBtn, #instructionsScreen{
+#gameOverScreen, #backBtn, #pauseBtn, #instructionsScreen, #optionsScreen{
   display: none;
 }
 
@@ -90,9 +90,8 @@ main{
 
 #instructionsScreen{
  max-width: fit-content;
- margin-left: auto;
- margin-right: auto;
- padding-right: 20px;
+ margin-left: 100px;
+ margin-right: 100px;
 }
 
 

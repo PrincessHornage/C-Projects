@@ -3,8 +3,9 @@ const instructionsScreen = document.querySelector("#instructionsScreen");
 const creditsBtn = document.querySelector("#creditsBtn");
 const optionsBtn = document.querySelector("#optionsBtn");
 const startScreen = document.querySelector("#startScreen"); 
-const mainMenuBtn = document.querySelector("#backBtn"); 
+const closeInstBtn = document.querySelector("#closeBtn"); 
 const gameTitle = document.querySelector("#gameTitle"); 
+
 
 const gameStartDiv = document.querySelector("#startScreen");
 const gameStartBtn = document.querySelector("#startGameBtn");
@@ -22,7 +23,6 @@ creditsBtn.addEventListener("click", ()=> {
     //Display credits screen 
 
     //Display Main Menu Button 
-    mainMenuBtn.style.display = "flex"; 
 });
 
 //Displays game controls and instructions 
@@ -37,7 +37,6 @@ instructionsBtn.addEventListener("click", ()=> {
 
     
     //Display Main Menu Button 
-    mainMenuBtn.style.display = "flex"; 
     
 });
 
@@ -50,16 +49,15 @@ optionsBtn.addEventListener("click", ()=> {
 
     
     //Display Main Menu Button 
-    mainMenuBtn.style.display = "flex"; 
 });
 
 //Returns to main menu 
-mainMenuBtn.addEventListener("click", ()=> {
+closeInstBtn.addEventListener("click", ()=> {
 
     //Hide all other screens 
     startScreen.style.display = "flex"; 
-    mainMenuBtn.style.display = "none"; 
-    instructionsScreen.style.display = "none"
+    gameTitle.style.display = "flex"; 
+    instructionsScreen.style.display = "none"; 
 
 });
 

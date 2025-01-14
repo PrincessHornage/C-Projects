@@ -5,6 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/assets/naughty.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <title>Feeding Fido</title>
   </head>
   <body>
@@ -14,156 +15,146 @@
     <main>
       <canvas id="gameCanvas"></canvas>
 
+
+
       <!--Instructions Screen-->
-      <div class="content pl-2" id="instructionsScreen">
-            <div class="columns is-centered">
-          <div class="column is-narrow">
-          </div>
-          <div class="column">
+      <div class="card" id="instructionsScreen">
+        <div class="card-content">
+          <header class="card-header">
+            <p class="card-header-title is-size-2">Instructions</p>
+            <!--Close Card Button-->
+            <button class="card-header-icon" aria-label="more options">
+              <button id="closeBtn">
+                <span class="icon has-text-danger">
+                  <i class="fas fa-2x fa-regular fa-circle-xmark"></i>
+                </span>
+              </button>
+            </button>
+          </header>
 
-            <div class="content" id="instrCard">
-              <div class="card">
-                <div class="card-content">
-                  <div class="media">
-                    <div class="media-content">
-                      <p class="title is-4 has-text-centered">How To Play</p>
-                    </div>
-                  </div>
-              
-                  <div class="content has-text-centered pt-6 is-size-4" id="intro">
-                    You just got a new puppy and it looks like he's really hungry. It must be treat time!
-                    <br>Use the <strong>left and right </strong> arrow keys on your keyboard to move your pup on the screen. 
-                    <br> Catch all the good treats but watch out, some of the food is <strong><em>toxic!</em></strong>
-                    <br> How many toxic foods can you remember to avoid? 
-                    <br>   
-                  </div>
-
-                  <br/>
-                  
-                  <!--Arrow Media-->
-                  <div class="content" id="arrowImgs"> 
-                    <div class="columns is-centered ">
-                      <div class="column is-narrow">
-                        <figure class="image is-128x128">
-                          <img src="/assets/left-arrow.png" alt="">
-                        </figure>
-                      </div>
-                      <div class="column is-narrow">
-                        <figure class="image is-128x128">
-                          <img src="/assets/right-arrow.png" alt="">
-                        </figure>
-                      </div>
-
-                    </div>
-                  </div>
-
-                  <hr/>
-
-                  <!--Toxic Food List-->
-                  <div class="content has-text-centered">
-                    <p class="title is-4 has-text-centered pt-3">Foods To Avoid </p>
-                    <br/>
-                    <div class="fixed-grid primary has-text-danger pl-6 is-size-5" id="toxicList">
-                      <div class="grid">
-                        <div class="cell mt-5">Chocolate</div>
-                        <div class="cell">
-                          <figure class="image is-96x96">
-                            <img src="/assets/dark-chocolate.png" alt="Dark Chocolate">
-                          </figure>
-                        </div>
-                        <div class="cell mt-5">Grapes/Raisins</div>
-                        <div class="cell">
-                          <figure class="image is-96x96">
-                            <img src="/assets/grape.png" alt="Dark Chocolate">
-                          </figure>
-                        </div>
-                        <div class="cell mt-5">Onions</div>
-                        <div class="cell">
-                           <figure class="image is-96x96">
-                            <img src="/assets/onion.png" alt="Dark Chocolate">
-                          </figure>
-                        </div>
-                        <div class="cell mt-5">Garlic</div>
-                        <div class="cell">
-                           <figure class="image is-96x96">
-                            <img src="/assets/garlic.png" alt="Dark Chocolate">
-                          </figure>
-                        </div>
-                        <div class="cell mt-5">Gum</div>
-                        <div class="cell">
-                           <figure class="image is-96x96">
-                            <img src="/assets/chewing-gum.png" alt="Dark Chocolate">
-                          </figure>
-                        </div>
-                        <div class="cell mt-5">Soda</div>
-                        <div class="cell">
-                           <figure class="image is-96x96">
-                            <img src="/assets/soft-drink.png" alt="Dark Chocolate">
-                          </figure>
-                        </div>
-                        <div class="cell mt-5">Ice Cream</div>
-                        <div class="cell">
-                           <figure class="image is-96x96">
-                            <img src="/assets/ice-cream.png" alt="Dark Chocolate">
-                          </figure>
-                        </div>
-                        <div class="cell mt-5">Pizza</div>
-                        <div class="cell">
-                           <figure class="image is-96x96">
-                            <img src="/assets/pizza.png" alt="Dark Chocolate">
-                          </figure>
-                        </div>
-                        <div class="cell mt-5">Nuts</div>
-                        <div class="cell">
-                           <figure class="image is-96x96">
-                            <img src="/assets/nuts.png" alt="Dark Chocolate">
-                          </figure>
-                        </div>
-                        <div class="cell mt-5">Sweets/Desserts</div>
-                        <div class="cell">
-                           <figure class="image is-96x96">
-                            <img src="/assets/sweets.png" alt="Dark Chocolate">
-                          </figure>
-                        </div>
-                        <div class="cell mt-5">Avocados</div>
-                        <div class="cell">
-                           <figure class="image is-96x96">
-                            <img src="/assets/avocado.png" alt="Dark Chocolate">
-                          </figure>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-
+          <!--Intro Text-->
+          <div class="card-content">
+            <div class="content  is-size-4" id="intro">
+              <p>
+                You just got a new puppy and it looks like he's really hungry. It must be treat time!
+                Use the <strong>left</strong> and <strong>right</strong>  arrow keys on your keyboard to move your pup on the screen. 
+                Catch all the good treats but watch out, some of the food is <strong><em>toxic!</em></strong>
+                How many toxic foods can you remember to avoid? 
+                <br>   
+              </p>
+            </div>
+            <br/>
+            
+            <!--Arrow Images-->
+            <div class="content" id="arrowImgs"> 
+              <div class="columns is-centered ">
+                <div class="column is-narrow">
+                  <figure class="image is-128x128">
+                    <img src="/assets/left-arrow.png" alt="">
+                  </figure>
+                </div>
+                <div class="column is-narrow">
+                  <figure class="image is-128x128">
+                    <img src="/assets/right-arrow.png" alt="">
+                  </figure>
                 </div>
 
-                <footer class="card-footer">
-                  <a href="#" class="card-footer-item">Return to Top</a>
-                  <a href=""><button class="card-footer-item" id="backBtn">Main Menu</a></a>
-                  
-                </footer>
+              </div>
+            </div>
+            <hr/>
+
+            <!--Toxic Food List-->
+            <div class="content has-text-centered">
+              <p class="title is-4 has-text-centered pt-3">Foods To Avoid </p>
+              <br/>
+              <div class="fixed-grid primary has-text-danger pl-6 is-size-4" id="toxicList">
+                <div class="grid">
+                  <div class="cell mt-5">Chocolate</div>
+                  <div class="cell">
+                    <figure class="image is-96x96">
+                      <img src="/assets/dark-chocolate.png" alt="Dark Chocolate">
+                    </figure>
+                  </div>
+                  <div class="cell mt-5">Grapes/Raisins</div>
+                  <div class="cell">
+                    <figure class="image is-96x96">
+                      <img src="/assets/grape.png" alt="Dark Chocolate">
+                    </figure>
+                  </div>
+                  <div class="cell mt-5">Onions</div>
+                  <div class="cell">
+                     <figure class="image is-96x96">
+                      <img src="/assets/onion.png" alt="Dark Chocolate">
+                    </figure>
+                  </div>
+                  <div class="cell mt-5">Garlic</div>
+                  <div class="cell">
+                     <figure class="image is-96x96">
+                      <img src="/assets/garlic.png" alt="Dark Chocolate">
+                    </figure>
+                  </div>
+                  <div class="cell mt-5">Gum</div>
+                  <div class="cell">
+                     <figure class="image is-96x96">
+                      <img src="/assets/chewing-gum.png" alt="Dark Chocolate">
+                    </figure>
+                  </div>
+                  <div class="cell mt-5">Soda</div>
+                  <div class="cell">
+                     <figure class="image is-96x96">
+                      <img src="/assets/soft-drink.png" alt="Dark Chocolate">
+                    </figure>
+                  </div>
+                  <div class="cell mt-5">Ice Cream</div>
+                  <div class="cell">
+                     <figure class="image is-96x96">
+                      <img src="/assets/ice-cream.png" alt="Dark Chocolate">
+                    </figure>
+                  </div>
+                  <div class="cell mt-5">Pizza</div>
+                  <div class="cell">
+                     <figure class="image is-96x96">
+                      <img src="/assets/pizza.png" alt="Dark Chocolate">
+                    </figure>
+                  </div>
+                  <div class="cell mt-5">Nuts</div>
+                  <div class="cell">
+                     <figure class="image is-96x96">
+                      <img src="/assets/nuts.png" alt="Dark Chocolate">
+                    </figure>
+                  </div>
+                  <div class="cell mt-5">Sweets/Desserts</div>
+                  <div class="cell">
+                     <figure class="image is-96x96">
+                      <img src="/assets/sweets.png" alt="Dark Chocolate">
+                    </figure>
+                  </div>
+                  <div class="cell mt-5">Avocados</div>
+                  <div class="cell">
+                     <figure class="image is-96x96">
+                      <img src="/assets/avocado.png" alt="Dark Chocolate">
+                    </figure>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+
+          <!--Back to top-->
+          <footer class="card-footer">
+            <a href="#" class="card-footer-item">Return to Top</a>
+          </footer>
+
         </div>
       </div>
-
-    
-
-
-   
-
-
+      
       <!--Options Screen-->
-      <div id="optionsScreen">
+      <div id="optionsScreen" class="container">
          
       </div>
 
       <!--Credits Screen-->
         
-  
-  
 
       <!--Start Screen-->
       <div id="startScreen" class="gameUI content">
@@ -174,7 +165,6 @@
       </div>
 
       <!--Game Over Screen-->
-
       <div id="gameOverScreen" class="gameUI">
         <p>Game Over</p>
         <h1>You <span id="gameWinLoseSpan"></span></h1>
@@ -183,7 +173,6 @@
       </div>
 
       <!--Game UI -->
-
       <div id="gameBtn">
         <button id="pauseBtn" class="button is-rounded"><span>||</span></button>
       </div>

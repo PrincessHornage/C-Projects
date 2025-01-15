@@ -149,12 +149,60 @@
       </div>
       
       <!--Options Screen-->
-      <div id="optionsScreen" class="container">
-         
+      <div class="card" id="optionsScreen">
+        <div class="card-content">
+          <header class="card-header">
+            <p class="card-header-title is-size-2 is-centered">
+              
+              <span class="icon-text">
+                <span class="icon" style="margin-right: 10px;">
+                  <i class="fa-solid fa-gears"></i>
+                </span>
+                <span>Options</span>
+              </span>
+            
+            </p>
+            <!--Close Card Button-->
+          </header>
+          <hr>
+
+          <!--Settings-->
+          <div class="card-content">
+            <div class="content is-size-4">
+              <div class="fixed-grid has-2-cols has-text-centered">
+                <div class="grid is-gap-6">
+                  <div class="cell">Background Music</div>
+                  <div class="cell">
+                    <button class="button" id="volumeBtn">
+                      <img src="/assets/speaker.png" class="is-32x32 image" id="volumeBtnImg" alt="Volume On/Off">
+                    </button>
+                  </div>
+
+                  <div class="cell">Sound EFX</div>
+                  <div class="cell">
+                    <button class="button" id="efxBtn">
+                      <img src="/assets/speaker.png" class="is-32x32 image" id="efxBtnImg" alt="Sound EFX Volume On/Off">
+                    </button>
+                  </div>
+                  <div class="cell">Fullscreen</div>
+                  <div class="cell">
+                    <button class="button is-rounded" id="fullscreenBtn">Enabled</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+
+          <!--Save Changes-->
+          <footer class="card-footer">
+            <button class="button is-rounded" id="saveSettingsBtn">Save Changes</button>
+          </footer>
+        </div>
       </div>
 
       <!--Credits Screen-->
-        
+
 
       <!--Start Screen-->
       <div id="startScreen" class="gameUI content">

@@ -83,9 +83,9 @@ main{
   width: 700px;      /* Ensure it doesn't exceed the available width */
   margin-left: auto;
   margin-right: auto;
-  overflow-x: auto; /* Allow horizontal scrolling if necessary */
   padding: 10px;    /* Optional: Add some padding inside the div */
   box-sizing: border-box; 
+  height: fit-content;
 }
 
 #toxicList{
@@ -95,6 +95,19 @@ main{
 #gameTitle{
   font-size: clamp(25px, 2vw + 1rem, 50px);/*(mix, preff, max)*/
 }
+
+#pauseBtn{
+  width: fit-content;
+  height: fit-content;
+  display: hidden;
+  justify-content: flex-start;
+  align-items: center;
+  position: fixed;
+  top: 100px;                    /* Adjust the top position as needed */
+  left: 20px;                   /* Positions the button 20px from the left edge */
+  z-index: 1000; 
+}
+
 
 /*Media Queries*/
 

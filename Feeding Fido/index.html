@@ -15,8 +15,6 @@
     <main>
       <canvas id="gameCanvas"></canvas>
 
-
-
       <!--Instructions Screen-->
       <div class="card" id="instructionsScreen">
         <div class="card-content">
@@ -201,9 +199,6 @@
         </div>
       </div>
 
-      <!--Credits Screen-->
-
-
       <!--Start Screen-->
       <div id="startScreen" class="gameUI content">
         <button id="startGameBtn" class="button is-rounded">Start</button>
@@ -220,15 +215,35 @@
         <p>Hit refresh on you browser page to play again</p>
       </div>
 
-      <!--Game UI -->
-      <div id="gameBtn">
-        <button id="pauseBtn" class="button is-rounded"><span>||</span></button>
-      </div>
-
+      <!-- Help Button -->
+      <button class="button is-ghost is-responsive js-modal-trigger" id="pauseBtn" data-target="pauseMenu">
+        <img src="/assets/pause.png" class="image is-96x96" alt="Pause Game">
+      </button>
 
     </main>
     <footer>Osaani Productions | Princess Hornage 2025</footer>
     <script type="module" src="src/main.js"></script>
     <script type="module" src="src/gameUI.js"></script>
+
+    <div class="modal" id="pauseMenu">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Paused</p>
+          <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <!-- Content ... -->
+        </section>
+        <footer class="modal-card-foot">
+          <div class="buttons">
+            <button class="button is-success">Save changes</button>
+            <button class="button">Cancel</button>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+
   </body>
 </html>

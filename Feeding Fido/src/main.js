@@ -245,12 +245,9 @@ gameStartBtn.addEventListener("click", () => {
 //Pause Button
 pauseBtn.addEventListener("click", () => {
   game.scene.pause("scene-game");
+  
 });
 
-//Resumes scene is players double click pause btn 
-pauseBtn.addEventListener("dblclick", () => {
-  game.scene.resume("scene-game"); 
-});
 
 
 
